@@ -18,16 +18,54 @@
         <br>
         <h1>Contact Form</h1>
     </header>
-    <input name="Your Name" required>
-    <select name="Beverage Options" id="drinks">
-        <option>Water (Lukewarm)</option>
-        <option>Water (Cold <- Superior)</option>
-        <option>Coffee</option>
-        <option>Tea</option>
-        <option>Juice</option>
-        <option>Milk</option>
-    </select>
-    <br>
-    <button>Press Me</button>
+    <main>
+        <div>
+            <h2>Enter Your Name: </h2>
+            <input name="Your Name" required>
+            <br>
+
+            <h2>Enter Your Email: </h2>
+            <input name="Email" type="email" required>
+            <br>
+        </div>
+        <div>
+            <h2>Survey Section</h2>
+            <select>
+                <legend>Which pet/s are you okay with???</legend>
+                <option>Cat</option>
+                <option>Dog</option>
+                <option>Rabbit</option>
+                <option>Snake</option>
+            </select>
+            <fieldset>
+                <legend>Select Your Preferred Bev:</legend>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Water (Lukewarm)</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Water (Cold <- Superior)</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Coffee</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Tea</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Juice</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Milk</label>
+                </div>
+            </fieldset>
+            <button type="submit">Submit</button>
+        </div>
+    </main>
 </body>
 </html>
