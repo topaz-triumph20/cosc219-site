@@ -9,83 +9,88 @@
 <body id="container">
     <header>
         <nav>
-            <tr class="nav-bar">
+            <tr>
                 <a href = "index.html" class="nav-link">To Home Page</a>
                 <a href = "about.html" class="nav-link">To About</a>
                 <a href = "projects.html" class="nav-link">To Projects</a>
                 <a href = "contact.html" class="nav-link"><em>You Are Here (Contacts)</em></a>
             </tr>
         </nav>
-        <h1 id="main-header">Contact Form</h1>
+        <h1 id="main-header">Survey Form!</h1>
     </header>
     <main>
-        <div>
-            <label for="Your Name">Enter Your Name: </label>
-            <input name="Your Name" required>
-            <br>
-
-            <label for="Email">Enter Your Email: </label>
-            <input name="Email" type="email" required>
-            <br>
-        </div>
-        <div>
-            <h2>Survey Section</h2>
-            <fieldset>
-                <legend name="pet">Which pet/s are you okay with???</legend>
-                <select>
-                    <option name="pet" id="dog">Cat</option>
-                    <option name="pet" id="'cat">Dog</option>
-                    <option name="pet" id="rabbit">Rabbit</option>
-                    <option name="pet" id="ball-python">Ball Python</option>
-                    <option name="pet" id="betta">Betta Fish</option>
-                    <option name="pet" id="chimpanzee">Chimpanzee</option>
-                </select>
-            </fieldset>
-            <fieldset>
-                <legend>Select Your Preferred Bev:</legend>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Water (Lukewarm)</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Water (Cold <- Superior)</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Coffee</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">double shot Caramel Macchiato, zero sugar, oat milk only, one pump vanilla, one pump hazelnut, one extra pump caramel, extra whipped cream and caramel drizzle on top</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Tea</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Milk</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Milk Tea</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Juice</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Fruit Soda</label>
-                </div>
-                <div>
-                    <input type="radio" name="bev">
-                    <label id="drink">Ginger Ale</label>
-                </div>
-            </fieldset>
+        <form>
+            <div>
+                <label for="Your Name">Enter Your Name: </label>
+                <input name="Your Name" required=>
+                <br>
+            </div>
+            <div>
+                <label for="Email">Enter Your Email: </label>
+                <input name="Email" type="email" required>
+                <br>
+            </div>
+            <div>
+                <h2>Survey Section</h2>
+                <fieldset>
+                    <legend name="pet">Which pet/s are you okay with???</legend>
+                    <select required>
+                        <option name="pet" value="" disabled selected>Choose :3</option> /* https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box */
+                        <option name="pet" value="cat">Cat</option>
+                        <option name="pet" value="dog">Dog</option>
+                        <option name="pet" value="rabbit">Rabbit</option>
+                        <option name="pet" value="ball-python">Ball Python</option>
+                        <option name="pet" value="betta">Betta Fish</option>
+                        <option name="pet" value="chimpanzee">Chimpanzee</option>
+                    </select>
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend>Select Your Preferred Bev:</legend>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Water (Lukewarm)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Water (Cold <- Superior)</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Coffee</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">double shot Caramel Macchiato, zero sugar, oat milk only, one pump vanilla, one pump hazelnut, one extra pump caramel, extra whipped cream and caramel drizzle on top</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Tea</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Milk</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Milk Tea</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Juice</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Fruit Soda</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="bev">
+                        <label id="drink">Ginger Ale</label>
+                    </div>
+                </fieldset>
+            </div>
             <button type="submit">Submit</button>
-        </div>
+        </form>    
     </main>
 </body>
 </html>
