@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flood Control AU</title>
 </head>
-<body>
+<body id="container">
     <header>
         <nav>
-            <ul>
-                <li><a href = "index.html">To Home Page</a></li>
-                <li><a href = "about.html">To About</a></li>
-                <li><a href = "projects.html"><em>You Are Here (Projects)</em></a></li>
-                <li><a href = "contact.html">To Contact</a></li>
-            </ul>
+            <tr class="nav-bar">
+                <a href = "index.html" class="nav-link">To Home Page</a>
+                <a href = "about.html" class="nav-link">To About</a>
+                <a href = "projects.html" class="nav-link"><em>You Are Here (Projects)</em></a>
+                <a href = "contact.html" class="nav-link">To Contact</a>
+            </tr>
         </nav>
-        <h1>Projects/Interests</h1>
+        <h1 id="main-header">Projects/Interests</h1>
     </header>
     <section>
         <main>
@@ -24,35 +25,39 @@
                     <th scope = "col"><em>The Rise of AI</em></th>
                     <caption>This table talks about AI, specifically about LLMs.</caption>
                 </thead>
-                <col>
-                    <a href="https://www.coursera.org/articles/how-do-large-language-models-work">
-                        <article>
-                            <h2>How Large Language Models (LLMs) Work</h2>
+                <tbody>
+                    <col>
+                        <a href="https://www.coursera.org/articles/how-do-large-language-models-work">
+                            <article>
+                                <h2>How Large Language Models (LLMs) Work</h2>
+                            </article>
                             <p>Ever since the rise of LLMs, I have been curious as to how they work,<br>
                                 and what is the process that makes it seem as though it knows everything.
                             </p>
-                        </article>
-                    </a>
-                </col>
-                <col>
-                    <a href="https://towardsdatascience.com/how-to-fine-tune-an-llm-an-end-to-end-guide/">
-                        <article>
-                            <h2>How to Fine-Tune an LLM</h2>
-                            <p>This is an interesting read for sure. I am not at this level yet, <br>
+                        </a>
+                    </col>
+                    <col>
+                        <a href="https://towardsdatascience.com/how-to-fine-tune-an-llm-an-end-to-end-guide/">
+                            <article>
+                                <h2>How to Fine-Tune an LLM</h2>
+                            </article>
+                            <p>This is an interesting read for sure. I am not at this level yet, 
                                 but I do hope I am able to work on LLMs in the future
                             </p>
-                        </article>
-                    </a>
-                </col>
-                <col>
-                    <a href="https://www.linkedin.com/pulse/what-hell-chatbots-why-should-part-my-strategy-rod-taubman/">
-                        <article>
-                            <h2>9 Year Old Prediction About Chatbots</h2>
-                            <p>The author, Rod Taubman, wrote this in 2017.
+                        </a>
+                    </col>
+                    <col>
+                        <a href="https://www.linkedin.com/pulse/what-hell-chatbots-why-should-part-my-strategy-rod-taubman/">
+                            <article>
+                                <h2>9 Year Old Prediction About Chatbots</h2>
+                            </article>
+                            <p>The author, Rod Taubman, wrote this in 2017. It's quite an interesting read as 
+                                it details what he thinks and has read about chatbots, and the 
+                                diminishing need for humans in online customer service. It has honestly come true.
                             </p>
-                        </article>
-                    </a>
-                </col>
+                        </a>
+                    </col>
+                </tbody>
             </table>
         </main>
     </section>

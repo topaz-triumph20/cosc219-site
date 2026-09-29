@@ -2,41 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body id="container">
     <header>
         <nav>
-            <ul>
-                <li><a href = "index.html">To Home Page</a></li>
-                <li><a href = "about.html">To About</a></li>
-                <li><a href = "projects.html">To Projects</a></li>
-                <li><a href = "contact.html"><em>You Are Here (Contacts)</em></a></li>
-            </ul>
+            <tr class="nav-bar">
+                <a href = "index.html" class="nav-link">To Home Page</a>
+                <a href = "about.html" class="nav-link">To About</a>
+                <a href = "projects.html" class="nav-link">To Projects</a>
+                <a href = "contact.html" class="nav-link"><em>You Are Here (Contacts)</em></a>
+            </tr>
         </nav>
-        <br>
-        <h1>Contact Form</h1>
+        <h1 id="main-header">Contact Form</h1>
     </header>
     <main>
         <div>
-            <h2>Enter Your Name: </h2>
+            <label for="Your Name">Enter Your Name: </label>
             <input name="Your Name" required>
             <br>
 
-            <h2>Enter Your Email: </h2>
+            <label for="Email">Enter Your Email: </label>
             <input name="Email" type="email" required>
             <br>
         </div>
         <div>
             <h2>Survey Section</h2>
             <fieldset>
-                <legend>Which pet/s are you okay with???</legend>
+                <legend name="pet">Which pet/s are you okay with???</legend>
                 <select>
-                    <option>Cat</option>
-                    <option>Dog</option>
-                    <option>Rabbit</option>
-                    <option>Snake</option>
+                    <option name="pet" id="dog">Cat</option>
+                    <option name="pet" id="'cat">Dog</option>
+                    <option name="pet" id="rabbit">Rabbit</option>
+                    <option name="pet" id="ball-python">Ball Python</option>
+                    <option name="pet" id="betta">Betta Fish</option>
+                    <option name="pet" id="chimpanzee">Chimpanzee</option>
                 </select>
             </fieldset>
             <fieldset>
@@ -55,7 +57,19 @@
                 </div>
                 <div>
                     <input type="radio" name="bev">
+                    <label id="drink">double shot Caramel Macchiato, zero sugar, oat milk only, one pump vanilla, one pump hazelnut, one extra pump caramel, extra whipped cream and caramel drizzle on top</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
                     <label id="drink">Tea</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Milk</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Milk Tea</label>
                 </div>
                 <div>
                     <input type="radio" name="bev">
@@ -63,7 +77,11 @@
                 </div>
                 <div>
                     <input type="radio" name="bev">
-                    <label id="drink">Milk</label>
+                    <label id="drink">Fruit Soda</label>
+                </div>
+                <div>
+                    <input type="radio" name="bev">
+                    <label id="drink">Ginger Ale</label>
                 </div>
             </fieldset>
             <button type="submit">Submit</button>
