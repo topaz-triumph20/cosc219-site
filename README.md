@@ -3,7 +3,7 @@
 URL: (https://topaz-triumph20.github.io/cosc219-site/index.html)
 
 
-
+What Changed This Week: The CSS did wonders for my site, especially with the alignment and the form. Maybe a bit too much color.
 
 Stylistic Choices: I opted for a colorful background. I got quite curious as to how to create gradients for my elements,
           so I decided to do it for my background first. I always like having nice backgrounds and a dynamic feel for
