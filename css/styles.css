@@ -45,7 +45,8 @@ main {
     text-shadow: 0 0 5px #d5084c, 0 0 15px #f0dce3, 0 0 25px #d5084c;
     text-align: center;
     color: #fff4f8;
-    border-bottom: 3px solid #ff0040;
+
+    border-bottom: 3px solid #0eefff;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
@@ -136,6 +137,17 @@ td p{
     padding-left: 5px;
 }
 
+/*article hover*/
+a h2:hover{
+    color:#fff4f8;
+    text-shadow: 0 0 5px #940cef, 0 0 25px #f0dce3, 0 0 30px #940cef;
+}
+td a#p5{
+    text-decoration: none !important;
+    text-shadow: none;
+    color:#000000;
+}
+
 
 /*nav bar*/
 nav{
@@ -165,6 +177,8 @@ nav{
 
 .nav-link:hover {
     background-color: #e53838;
+    box-shadow: 0 0 5px #ef0c39, 0 0 25px #f0dce3, 0 0 35px #ef0c39;
+    font-weight: bolder;
 }
 
 /*cards thing*/
@@ -224,7 +238,7 @@ form button{
 
 form button:hover{
     color: var(--submitColor);
-    box-shadow: #ff0040;
+    box-shadow: 0 0 5px #940cef, 0 0 15px #f0dce3, 0 0 25px #940cef;
 }
 
 form button:focus{
