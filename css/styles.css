@@ -1,19 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Geist+Pixel|Bitcount+Grid+Single'); 
+
+/*I also searched about the import*/
+
 /*references:
     - https://youtu.be/cWgb42tUYPA?si=2IoV_9DTpU__pYVY&t=560
+    - https://www.youtube.com/watch?v=MnyCbILmtOY&t=254s
+    https://theosoti.com/blog/css-if-function-conditional-styling-without-javascript/  <-- for if screen is small or something
+
+    I'm very particular on my font and style choices. i get to be artsy for once, so I am going to go BALLISTIC
 */
 
 *, *::before, *::after{ box-sizing: border-box;}
 
 main {
-  max-width: 42rem;
-  margin: 0 auto;
-  padding: var(--space);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--space);
 }
+
 
 :root{
     --currentFocus: #19cabe;
     --submitColor: #a92837;
-    --space: 10px 20px 10px 20px;
+    --space: 10px 10px;
 
     background: linear-gradient(270deg, #861254, #821824, #af4b11, 
         #cda908, #0ca69c, #640ea7, #861254, #640ea7, #0ca69c,
@@ -29,43 +39,98 @@ main {
     100%{ background-position: 0% 50%;}
 }
 
+#main-header {
+    font-family: 'Bitcount Grid Single', monospace;
+    font-size: 3em;
+    text-shadow: 0 0 5px #d5084c, 0 0 15px #f0dce3, 0 0 25px #d5084c;
+    text-align: center;
+    color: #fff4f8;
+    border-bottom: 3px solid #ff0040;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+#subheader {
+    font-family: 'Bitcount Grid Single', monospace;
+    font-size: 2em;
+    text-shadow: 0 0 5px #940cef, 0 0 15px #f0dce3, 0 0 25px #940cef;
+    text-align: center;
+    color: #fff4f8;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
+    font-size: 1em;
     color: #333;
     line-height: 1.6;
     margin: 20px;
 }
+h2{
+    text-size-adjust: 0.77rem;
+    padding: 0.77rem;
+}
 
 #container {
-    max-width: 900px;
-    margin: auto;
+    width: 85vw;
+    align-self: center;
     background-color: #ffffff7e;
     color: rgb(0, 0, 0);
-    padding: 25px;
+    padding: 2vw 4vw;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+}
+#subcontainer {
+    width: 85%;
+    margin: 1rem;
+    background-color: #ffffff7e;
+    color: rgb(0, 0, 0);
+    padding: 5vw;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
-#main-header {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #190109;
-    border-bottom: 3px solid #ff0040;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-align: center;
+section div#subcontainer{
+    justify-self:center;
 }
+
+/*for sidebar*/
+.page-layout{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.sidebar{
+    justify-self: right;
+    max-width: 70%;
+    align-self: start;
+    align-items: center;
+
+    padding: 5px;
+}
+
 
 /*for table*/
-table {
-    width: 100%;
-    border-collapse: collapse;
+main table {
+    width: 50vw;
+    margin: 2rem;
+    justify-self: center;
+    align-self: center;
+
+    border-collapse: separate;
     border: 1px solid #ddd;
     padding: 8px;
+    margin-bottom: 5vh;
 }
 th {
-    background-color: #3498db;
-    color: white;
-    text-align: left;
+    width: 40%;
+    background-color:#f3c90f;
+    text-align: center;
+}
+td{
+    width: 30%;
 }
 td p{
     padding-left: 5px;
@@ -74,32 +139,79 @@ td p{
 
 /*nav bar*/
 nav{
-    margin: 20px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    
+    flex-direction: if(media(width < 700px):column;else:row);
+    flex-wrap: if(media(width < 700px):wrap;else:nowrap);
 }
 
 .nav-link {
     text-decoration: none;
+    text-align: center;
     background-color: #db3434ce;
     color: white;
+
     box-sizing: 150px;
-    padding: 8px 15px;
+    padding: 0.777em;
     border-radius: 5px;
-    font-size: 1em;
     margin: 0 10px;
+
+    font-size: 1em;
+
 }
 
 .nav-link:hover {
     background-color: #e53838;
 }
 
+/*cards thing*/
+/* 1 · explicit, with media queries */
+
+article{
+    border: 3px dotted;
+    padding: 5px;
+}
+
+.cards { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+
+@media (min-width: 38rem) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+
+    .page-layout{
+        grid-template-columns: 2fr 1fr;
+    }
+}
+@media (min-width: 58rem) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* 2 · content-driven, no media query needed */
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
 
 /*images -> rainbow from index, sans from about*/
 #double-rainbow{
+    align-items: center;
+    justify-content: center;
     max-height: 50vh; /*researched about this: vh -> viewport height*/
+    max-width: 77vw;
+}
+#sans{
+    justify-content: center;
 }
 
 
 /*form thingies*/
+.survey{
+    padding: 0 2rem;
+}
 div input:focus, select:focus{
     outline: 4px solid var(--currentFocus);
     box-shadow: 3px var(--currentFocus);
