@@ -36,9 +36,9 @@ const STARTING_LIVES = 6;
 
 function normalizeGuess(input) { //done
    entry = input.trim().toLowerCase();
-   reg = /^[az]+$/;
+   reg = /^[a-z]$/;
 
-   if(entry.length == 1 && entry) return entry;
+   if(entry.length == 1 && reg.test(entry)) return entry;
    else return "";
 }
 
@@ -73,11 +73,9 @@ function isValidGuess(input) { //done
    ---------------------------------------------------------------------- */
 
 function alreadyGuessed(letter, guessedLetters) {
-   userGuess = letter;
-   if(userGuess != letter){
-      guessedLetters = guessedLetters + letter;
-      return false;
-   }else true;
+   if(guessedLetters.toLowerCase().includes(letter.toLowerCase())){
+      return true;
+   }else return false;
 }
 
 
@@ -92,6 +90,9 @@ function alreadyGuessed(letter, guessedLetters) {
    ---------------------------------------------------------------------- */
 
 function isCorrect(letter, word) {
+   if(!isValidGuess(letter)) return false;   //if letter was wrong
+   if(word.toLowerCase().includes(normalizeGuess(letter))) return true;
+   else return false;
 
 }
 
@@ -107,7 +108,8 @@ function isCorrect(letter, word) {
    ---------------------------------------------------------------------- */
 
 function livesAfterGuess(lives, correct) {
-
+   if(correct) return lives;
+   return Math.max(0, lives-1);
 }
 
 
@@ -122,8 +124,8 @@ function livesAfterGuess(lives, correct) {
    scoreFor("otter")     →  80
    ---------------------------------------------------------------------- */
 
-function scoreFor(word, lives) {
-
+function scoreFor(word, lives = STARTING_LIVES) {
+   return word.length * 10 + lives * 5;
 }
 
 
@@ -144,7 +146,24 @@ function scoreFor(word, lives) {
    ---------------------------------------------------------------------- */
 
 function statusMessage(word, guessedLetters, lives) { //done
+   lifeWord = "";
+   guessLog = "";
 
+   if(lives === 1) {
+      lifeWord = "life";
+   } else lifeWord = "lives";
+
+   if(guessedLetters === ""){
+      guessLog = "nothing yet";
+   } else guessLog = guessedLetters;
+
+   if (lives <= 0) {
+      return `Out of lives. The word was "${word}".`;
+   }
+
+   if (hasWon(word, guessedLetters)) {
+      return `You got it! "${word}" with ${lives} ${lifeWord} left.`;
+   } else return `${lives} ${lifeWord} left. Guessed: ${guessLog}`;
 }
 
 
