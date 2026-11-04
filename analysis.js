@@ -29,7 +29,8 @@
    ---------------------------------------------------------------------- */
 
 function revealWord(word, guessedLetters) {
-
+  return word.split("").map(
+    letter => guessedLetters.includes(letter) ? letter : "_").join("");
 }
 
 
@@ -44,7 +45,7 @@ function revealWord(word, guessedLetters) {
    ---------------------------------------------------------------------- */
 
 function hasWon(word, guessedLetters) {
-
+  return word.split("").every(letter => guessedLetters.includes(letter));
 }
 
 
@@ -59,7 +60,7 @@ function hasWon(word, guessedLetters) {
    ---------------------------------------------------------------------- */
 
 function trailNames(trails) {
-
+  return trails.map(trail => trail.name);
 }
 
 
@@ -69,8 +70,10 @@ function trailNames(trails) {
    ---------------------------------------------------------------------- */
 
 function openTrails(trails) {
-
+  return trails.filter(trail => !trail.closed);
 }
+
+
 
 
 /* B3 — findByName(trails, name)
@@ -83,7 +86,7 @@ function openTrails(trails) {
    ---------------------------------------------------------------------- */
 
 function findByName(trails, name) {
-
+  return trails.find(trail => trail.name.toLowerCase() === name.toLowerCase());
 }
 
 
@@ -100,7 +103,7 @@ function findByName(trails, name) {
    ---------------------------------------------------------------------- */
 
 function sortedByDistance(trails) {
-
+  return [...trails].sort((a, b) => a.km - b.km);
 }
 
 
@@ -114,7 +117,7 @@ function sortedByDistance(trails) {
    ---------------------------------------------------------------------- */
 
 function anyClosed(trails) {
-
+  return trails.some(trail => trail.closed);
 }
 
 
@@ -125,7 +128,7 @@ function anyClosed(trails) {
    ---------------------------------------------------------------------- */
 
 function allUnder(trails, limit) {
-
+  return trails.every(trail => trail.km < limit);
 }
 
 
@@ -139,9 +142,9 @@ function allUnder(trails, limit) {
    ---------------------------------------------------------------------- */
 
 function totalDistance(trails) {
-
+  return Math.round(trails.reduce((total, trail) => total + trail.km, 0) * 10) / 10;
 }
-
+ 
 
 /* C4 — longestTrail(trails)
    The trail object with the largest km. undefined for an empty array.
@@ -152,7 +155,7 @@ function totalDistance(trails) {
    ---------------------------------------------------------------------- */
 
 function longestTrail(trails) {
-
+  return trails.reduce((longest, trail) => trail.km > longest.km ? trail : longest, trails[0]);
 }
 
 
@@ -166,7 +169,10 @@ function longestTrail(trails) {
    ---------------------------------------------------------------------- */
 
 function countByRating(trails) {
-
+  return trails.reduce((count, trail) => {
+    count[trail.rating] = (count[trail.rating] || 0) + 1;
+    return count;
+  }, {});
 }
 
 
@@ -182,7 +188,10 @@ function countByRating(trails) {
    ---------------------------------------------------------------------- */
 
 function openDistance(trails) {
-
+  return Math.round(trails
+    .filter(trail => !trail.closed)
+    .map(trail => trail.km)
+    .reduce((total, km) => total + km, 0) * 10) / 10;
 }
 
 
@@ -196,7 +205,13 @@ function openDistance(trails) {
    ---------------------------------------------------------------------- */
 
 function summaryLines(trails) {
-
+  return trails.map(trail => {
+    let line = `${trail.name} — ${trail.km} km, ${trail.rating}`;
+    if (trail.closed) {
+      line += " (closed)";
+    }
+    return line;
+  });
 }
 
 
@@ -219,5 +234,14 @@ function summaryLines(trails) {
    ---------------------------------------------------------------------- */
 
 function report(trails) {
-
+  const openTrailsList = openTrails(trails);
+  const longestOpenTrail = longestTrail(openTrailsList);
+  return {
+    total: trails.length,
+    open: openTrailsList.length,
+    closed: trails.length - openTrailsList.length,
+    openKm: openDistance(trails),
+    longestOpen: longestOpenTrail ? longestOpenTrail.name : null,
+    byRating: countByRating(trails)
+  };
 }
